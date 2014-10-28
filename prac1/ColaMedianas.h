@@ -6,6 +6,7 @@
 
 template <class T, bool(*antes)(const T &, const T &), bool(*despues)(const T &, const T &)>
 class ColaMedianas {
+
 public:
 	ColaMedianas() : _colamin(), _colamax() {}
 
@@ -14,10 +15,11 @@ public:
 	void inserta(const int& x) {
 		if (_colamin.numElem() == _colamax.numElem() && _colamin.numElem() == 0)
 			_colamin.inserta(x);
+
 		else if (x > mediana())
 			_colamin.inserta(x);
-		else
-			_colamax.inserta(x);
+
+		else _colamax.inserta(x);
 
 		recolocar();
 	}
@@ -25,21 +27,24 @@ public:
 	const int& mediana() const {
 		if (_colamin.numElem() > _colamax.numElem())
 			return _colamin.primero();
+
 		else if (_colamin.numElem() < _colamax.numElem())
 			return _colamax.primero();
-		else { // igual altura
-			return _colamin.primero(); // TODO calcular qué hacer en este caso
-		}
+
+		else // igual altura, la mediana está en el montículo de mínimos
+			return _colamin.primero();
+
 	}
 
 	void quitaMediana() {
 		if (_colamin.numElem() > _colamax.numElem())
 			_colamin.quitaPrim();
+
 		else if (_colamin.numElem() < _colamax.numElem())
 			_colamax.quitaPrim();
-		else { // igual altura
-			_colamin.quitaPrim(); // TODO calcular qué hacer en este caso
-		}
+
+		else // igual altura, la mediana está en el montículo de mínimos
+			_colamin.quitaPrim();
 
 		recolocar();
 	}
@@ -54,11 +59,10 @@ public:
 
 private:
 
-
 	ColaPrio<int, antes> _colamin;
 	ColaPrio<int, despues> _colamax;
 
-
+	/** como la función heapify */
 	void recolocar() {
 		int temp;
 
