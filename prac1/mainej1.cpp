@@ -13,7 +13,8 @@ bool mayor(const int& a, const int& b) {
 }
 
 
-int mainColaMedianas(int argc, char* argv[]) {
+//int mainColaMedianas(int argc, char* argv[]) {
+int mainej1 (int argc, char* argv[]) {
 
 	ColaMedianas<int, menore, mayor> cm;
 

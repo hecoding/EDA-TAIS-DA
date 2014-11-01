@@ -13,13 +13,13 @@ public:
 	~ColaMedianas() {}
 
 	void inserta(const int& x) {
-		if (_colamin.numElem() == _colamax.numElem() && _colamin.numElem() == 0)
-			_colamin.inserta(x);
+		if (_colamin.esVacia() && _colamax.esVacia())
+			_colamin.inserta(x); // da igual dónde se inserte al estar vacías
 
 		else if (x > mediana())
-			_colamin.inserta(x);
+			_colamin.inserta(x); // montículo de mínimos para los valores mayores que la mediana
 
-		else _colamax.inserta(x);
+		else _colamax.inserta(x); // montículo de máximos para los valores menores que la mediana
 
 		recolocar();
 	}
@@ -31,8 +31,8 @@ public:
 		else if (_colamin.numElem() < _colamax.numElem())
 			return _colamax.primero();
 
-		else // igual altura, la mediana está en el montículo de mínimos
-			return _colamin.primero();
+		else // igual altura, la mediana está en el montículo de máximos
+			return _colamax.primero();
 
 	}
 
@@ -43,8 +43,8 @@ public:
 		else if (_colamin.numElem() < _colamax.numElem())
 			_colamax.quitaPrim();
 
-		else // igual altura, la mediana está en el montículo de mínimos
-			_colamin.quitaPrim();
+		else // igual altura, la mediana está en el montículo de máximos
+			_colamax.quitaPrim();
 
 		recolocar();
 	}
@@ -62,11 +62,11 @@ private:
 	ColaPrio<int, antes> _colamin;
 	ColaPrio<int, despues> _colamax;
 
-	/** como la función heapify */
+	/** función que balancea los dos montículos */
 	void recolocar() {
 		int temp;
 
-		while (_colamin.numElem() - _colamax.numElem() > 1) {
+		while (abs(_colamin.numElem() - _colamax.numElem()) > 1) {
 
 			if (_colamin.numElem() - _colamax.numElem() > 1) {
 				temp = _colamin.primero();
@@ -80,6 +80,11 @@ private:
 			}
 
 		}
+	}
+
+	unsigned int abs (int x) {
+		if (x > 0) return x;
+		else return -x;
 	}
 
 };
