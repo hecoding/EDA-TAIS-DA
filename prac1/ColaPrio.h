@@ -5,20 +5,28 @@
        Author: Alberto Verdejo
  */
 
-#ifndef COLAPRIO_H_
-#define COLAPRIO_H_
-
+#include <cassert>
+#include <string>
 #include <iostream>
 using namespace std;
 
+
+#ifndef EX_TAD
+#define EX_TAD
+
 class ExcepcionTAD {
 public:
-	ExcepcionTAD() {}
-	ExcepcionTAD(const std::string &msg) : _msg(msg) {}
-	const std::string msg() const { return _msg; }
+    ExcepcionTAD() {}
+    ExcepcionTAD(const string &msg) : _msg(msg) {}
+    const string msg() const { return _msg; }
 protected:
-	std::string _msg;
+    string _msg;
 };
+
+#endif
+
+#ifndef EX_COLAPRIO_TAD
+#define EX_COLAPRIO_TAD
 
 /**
  Excepcion generada cuando el array esta lleno.
@@ -26,7 +34,7 @@ protected:
 class EColaPrLlena : public ExcepcionTAD {
 public:
     EColaPrLlena() {};
-    EColaPrLlena(const std::string &msg) : ExcepcionTAD(msg) {}
+    EColaPrLlena(const string &msg) : ExcepcionTAD(msg) {}
 };
 
 /**
@@ -36,8 +44,13 @@ public:
 class EColaPrVacia : public ExcepcionTAD {
 public:
     EColaPrVacia() {};
-    EColaPrVacia(const std::string &msg) : ExcepcionTAD(msg) {}
+    EColaPrVacia(const string &msg) : ExcepcionTAD(msg) {}
 };
+
+#endif
+
+#ifndef COLAPRIO_H_
+#define COLAPRIO_H_
 
 const int TAM_INICIAL = 100;
 
@@ -54,6 +67,7 @@ public:
         for(unsigned int i=0; i < t; i++) v[i+1] = v1[i];
         //monticulizar1();
         monticulizar2();
+        assert(es_monticulo(v,numElems,1));
     };
 
     /** Destructor; elimina el vector. */
@@ -68,6 +82,7 @@ public:
             v[numElems] = x;
             flotar(numElems);
         }
+      //  assert(es_monticulo(v,numElems,1));
     }
 
 	int numElem() const {
@@ -90,6 +105,7 @@ public:
             numElems--;
             hundir(1);
         }
+      //  assert(es_monticulo(v,numElems,1));
     }
 
     /** Constructor copia */
@@ -97,7 +113,7 @@ public:
         copia(other);
     }
 
-    /** Operador de asignaciï¿½n */
+    /** Operador de asignación */
     ColaPrio<T,antes> &operator=(const ColaPrio<T,antes> &other) {
         if (this != &other) {
             libera();
@@ -173,10 +189,23 @@ private:
             hundir(j);
     }
 
+    // comprueba si es un mont’culo el ‡rbol con ra’z en la posici—n i
+    static bool es_monticulo(T v[], int N, int i) {
+        bool correcto = true;
+        if (2*i <= N) { // hay hijo izquierdo
+            correcto = antes(v[i],v[i*2]) && es_monticulo(v,N,2*i);
+        }
+        if (correcto && 2*i+1 <= N) { // hay hijo derecho
+            correcto = antes(v[i],v[i*2+1]) && es_monticulo(v,N,2*i+1);
+        }
+        return correcto;
+    }
+
+
     /** Puntero al array que contiene los datos. */
     T* v;
 
-    /** Tamaï¿½o del vector v. */
+    /** Tama–o del vector v. */
     unsigned int tam;
 
     /** Numero de elementos reales guardados. */
