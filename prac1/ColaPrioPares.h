@@ -180,7 +180,6 @@ private:
         numElems = other.numElems;
         v = new Par<T>[tam+1];
         posiciones = new unsigned int[tam+1];
-        v = new T[tam];
         for (unsigned int i = 1; i <= numElems; ++i)
             v[i] = other.v[i];
         for (unsigned int i = 1; i <= tam; ++i)
