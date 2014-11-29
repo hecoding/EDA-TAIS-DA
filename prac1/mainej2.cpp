@@ -30,7 +30,7 @@ void mezcla_multiple(ifstream streams[], int N) { // ocupadas las posiciones [1.
 }
 
 
-int main (int argc, char* argv[]) {
+int mainMonticuloMediana (int argc, char* argv[]) {
 	if (argc > 1) {
 		ifstream *streams = new ifstream[argc];
 		for (int i = 1; i < argc; i++)
