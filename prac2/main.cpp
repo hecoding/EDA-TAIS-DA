@@ -94,7 +94,7 @@ int main () {
 	// TODO poner consts y referencias
 	// TODO iteradores en vez de .at(i)
 	const std::size_t NUM_RUEDAS = 4;
-	std::ifstream fichero ("prac2/input.txt");
+	std::ifstream fichero ("prac2/archivos/input.txt");
 	std::size_t num_problemas;
 
 	fichero >> num_problemas;
