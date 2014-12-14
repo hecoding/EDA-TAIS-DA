@@ -17,8 +17,8 @@ int mainColaMedianas(int argc, char* argv[]) {
 
 	ColaMedianas<int, menore, mayor> cm;
 
-	ifstream fichero("input1.txt");
-	ofstream ficheroSal("output1.txt");
+	ifstream fichero("prac1/archivos/input1.txt");
+	ofstream ficheroSal("prac1/archivos/output1.txt");
 	int v;
 
 	while(fichero >> v){
