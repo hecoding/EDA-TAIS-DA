@@ -62,7 +62,7 @@ std::vector<std::size_t> generar_combinaciones (std::size_t num, std::size_t num
 	return combinaciones;
 }
 
-bool es_combinacion_prohibida (std::size_t combinacion, std::vector<std::size_t> prohibidos) {
+bool es_combinacion_prohibida (std::size_t combinacion, std::vector<std::size_t>& prohibidos) {
 	// me remito al comentario del main
 	std::vector<std::size_t>::iterator resultado = std::find(prohibidos.begin(), prohibidos.end(), combinacion);
 
@@ -101,8 +101,6 @@ std::size_t leer_numero (std::ifstream& fichero, std::size_t num_ruedas) {
 }
 
 int main () {
-	// TODO poner referencias
-	// TODO poner consts
 	const std::size_t NUM_RUEDAS = 4;
 	std::ifstream fichero ("prac2/archivos/casos.txt");
 	std::size_t num_problemas;
