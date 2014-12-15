@@ -5,21 +5,35 @@
 #include <algorithm>
 #include "Grafo.h"
 
-void sumar1 (std::size_t& n) {
+void sumar_ciclicamente (std::size_t& n) {
+	// gira la rueda a la izquierda
 	if (n == 9)
 		n = 0;
 	else
 		++n;
 }
 
-void restar1 (std::size_t& n) {
+void restar_ciclicamente (std::size_t& n) {
+	// gira la rueda a la derecha
 	if (n == 0)
 		n = 9;
 	else
 		--n;
 }
 
-void meter_comb (std::vector<std::size_t> numeros, std::vector<std::size_t>& combinaciones, std::size_t num_ruedas) {
+std::vector<std::size_t> numero_a_ruedas (std::size_t numero, std::size_t num_ruedas) {
+	std::vector<std::size_t> ruedas;
+
+	// divide cada "rueda" de la combinación
+	for (std::size_t i = 0; i < num_ruedas; ++i) {
+		ruedas.push_back(numero % 10);
+		numero /= 10;
+	}
+
+	return ruedas;
+}
+
+std::size_t ruedas_a_numero (std::vector<std::size_t> numeros, std::size_t num_ruedas) {
 	std::size_t num = 0;
 
 	for (std::size_t i = num_ruedas; i > 0; --i) {
@@ -27,30 +41,22 @@ void meter_comb (std::vector<std::size_t> numeros, std::vector<std::size_t>& com
 		numeros.pop_back();
 	}
 
-	combinaciones.push_back(num);
+	return num;
 }
 
 std::vector<std::size_t> generar_combinaciones (std::size_t num, std::size_t num_ruedas) {
 	std::vector<std::size_t> combinaciones, temp;
+	temp = numero_a_ruedas(num, num_ruedas);
 
-	// divide cada "rueda" de la combinación
-	for (std::size_t i = 0; i < num_ruedas; ++i) {
-		temp.push_back(num % 10);
-		num /= 10;
-	}
+		// genera las 2 * num_ruedas combinaciones posibles, dependiendo de la configuración de las ruedas
+		for (std::vector<std::size_t>::iterator it = temp.begin(); it != temp.end(); ++it) {
+		sumar_ciclicamente(*it);
+		combinaciones.push_back(ruedas_a_numero(temp, num_ruedas));
+		restar_ciclicamente(*it);
 
-	// genera las 2 * num_ruedas combinaciones posibles, dependiendo de la configuración de las ruedas
-	std::vector<std::size_t>::iterator it = temp.begin();
-	while (it != temp.end()) {
-		sumar1(*it);
-		meter_comb(temp, combinaciones, num_ruedas);
-		restar1(*it);
-
-		restar1(*it);
-		meter_comb(temp, combinaciones, num_ruedas);
-		sumar1(*it);
-
-		++it;
+		restar_ciclicamente(*it);
+		combinaciones.push_back(ruedas_a_numero(temp, num_ruedas));
+		sumar_ciclicamente(*it);
 	}
 
 	return combinaciones;
@@ -60,7 +66,7 @@ bool es_combinacion_prohibida (std::size_t combinacion, std::vector<std::size_t>
 	// me remito al comentario del main
 	std::vector<std::size_t>::iterator resultado = std::find(prohibidos.begin(), prohibidos.end(), combinacion);
 
-	return resultado != prohibidos.end(); // si no lo encuentra devuelve un iterador al final
+	return resultado != prohibidos.end(); // si find() no lo encuentra devuelve un iterador al final
 }
 
 Grafo construir_grafo (std::size_t num_ruedas, std::vector<std::size_t>& confs_prohibidas) {
@@ -70,13 +76,11 @@ Grafo construir_grafo (std::size_t num_ruedas, std::vector<std::size_t>& confs_p
 	for (std::size_t i = 0; i < num_vertices; ++i) {
 		if (!es_combinacion_prohibida(i, confs_prohibidas)) { // si está prohibida no puede tener adyacentes
 			std::vector<std::size_t> combinaciones = generar_combinaciones (i, num_ruedas);
-			std::vector<std::size_t>::iterator it_combinaciones = combinaciones.begin(); // un iterador permite desacoplar el recorrido del contenedor
 
-			while (it_combinaciones != combinaciones.end()) {
-				if (!es_combinacion_prohibida (*it_combinaciones, confs_prohibidas))
-					problema.ponArista (i, *it_combinaciones);
-
-				++it_combinaciones;
+			// un iterador permite desacoplar el recorrido del contenedor
+			for (std::vector<std::size_t>::iterator it = combinaciones.begin(); it != combinaciones.end(); ++it) {
+				if (!es_combinacion_prohibida (*it, confs_prohibidas))
+					problema.ponArista (i, *it);
 			}
 		}
 	}
@@ -97,10 +101,8 @@ std::size_t leer_numero (std::ifstream& fichero, std::size_t num_ruedas) {
 }
 
 int main () {
-	// TODO comentar cosillas no claras
-	// TODO poner consts y referencias
-	// TODO iteradores en vez de .at(i)
-	// TODO poner input.txt en el fichero
+	// TODO poner referencias
+	// TODO poner consts
 	const std::size_t NUM_RUEDAS = 4;
 	std::ifstream fichero ("prac2/archivos/casos.txt");
 	std::size_t num_problemas;
