@@ -33,25 +33,31 @@ void meter_comb (std::vector<std::size_t> numeros, std::vector<std::size_t>& com
 std::vector<std::size_t> generar_combinaciones (std::size_t num, std::size_t num_ruedas) {
 	std::vector<std::size_t> combinaciones, temp;
 
+	// divide cada "rueda" de la combinación
 	for (std::size_t i = 0; i < num_ruedas; ++i) {
 		temp.push_back(num % 10);
 		num /= 10;
 	}
 
-	for (std::size_t i = 0; i < num_ruedas; ++i) {
-		sumar1(temp.at(i));
+	// genera las 2 * num_ruedas combinaciones posibles, dependiendo de la configuración de las ruedas
+	std::vector<std::size_t>::iterator it = temp.begin();
+	while (it != temp.end()) {
+		sumar1(*it);
 		meter_comb(temp, combinaciones, num_ruedas);
-		restar1(temp.at(i));
+		restar1(*it);
 
-		restar1(temp.at(i));
+		restar1(*it);
 		meter_comb(temp, combinaciones, num_ruedas);
-		sumar1(temp.at(i));
+		sumar1(*it);
+
+		++it;
 	}
 
 	return combinaciones;
 }
 
 bool es_combinacion_prohibida (std::size_t combinacion, std::vector<std::size_t> prohibidos) {
+	// me remito al comentario del main
 	std::vector<std::size_t>::iterator resultado = std::find(prohibidos.begin(), prohibidos.end(), combinacion);
 
 	return resultado != prohibidos.end(); // si no lo encuentra devuelve un iterador al final
@@ -60,18 +66,19 @@ bool es_combinacion_prohibida (std::size_t combinacion, std::vector<std::size_t>
 Grafo construir_grafo (std::size_t num_ruedas, std::vector<std::size_t>& confs_prohibidas) {
 	std::size_t num_vertices = std::pow(10, num_ruedas);
 	Grafo problema (num_vertices);
-	std::vector<std::size_t>::iterator it = confs_prohibidas.begin();
 
 	for (std::size_t i = 0; i < num_vertices; ++i) {
-		std::vector<std::size_t> combinaciones = generar_combinaciones (i, num_ruedas);
+		if (!es_combinacion_prohibida(i, confs_prohibidas)) { // si está prohibida no puede tener adyacentes
+			std::vector<std::size_t> combinaciones = generar_combinaciones (i, num_ruedas);
+			std::vector<std::size_t>::iterator it_combinaciones = combinaciones.begin(); // un iterador permite desacoplar el recorrido del contenedor
 
-		for (std::size_t j = 0; j < combinaciones.size(); ++j) {
-			if (!es_combinacion_prohibida (combinaciones.at(j), confs_prohibidas))
-				problema.ponArista (i, combinaciones.at(j));
+			while (it_combinaciones != combinaciones.end()) {
+				if (!es_combinacion_prohibida (*it_combinaciones, confs_prohibidas))
+					problema.ponArista (i, *it_combinaciones);
+
+				++it_combinaciones;
+			}
 		}
-
-//		if (i == 9990)
-//			std::cout << "bazinga";
 	}
 
 	return problema;
@@ -93,8 +100,9 @@ int main () {
 	// TODO comentar cosillas no claras
 	// TODO poner consts y referencias
 	// TODO iteradores en vez de .at(i)
+	// TODO poner input.txt en el fichero
 	const std::size_t NUM_RUEDAS = 4;
-	std::ifstream fichero ("prac2/archivos/input.txt");
+	std::ifstream fichero ("prac2/archivos/casos.txt");
 	std::size_t num_problemas;
 
 	fichero >> num_problemas;
@@ -118,21 +126,13 @@ int main () {
 			confs_prohibidas.push_back(leer_numero(fichero, NUM_RUEDAS));
 
 		Grafo problema = construir_grafo (NUM_RUEDAS, confs_prohibidas);
-		// Usamos breadth porque tal........
+		// Usamos BFS porque al contrario que DFS, nos garantiza el camino más corto
 		BreadthFirstPaths busqueda (problema, conf_inicial);
 
 		if (!busqueda.hasPathTo(conf_final))
 			std::cout << "-1" << std::endl;
 		else
 			std::cout << busqueda.distance(conf_final) << std::endl;
-
-//			Path* c = busqueda.pathTo(conf_final);
-//
-//			for (uint var = 0; var < c->size(); ++var) {
-//
-//				cout << c->front() << " ";
-//				c->pop_front();
-//			} std::cout << std::endl;
 	}
 
 	return 0;
