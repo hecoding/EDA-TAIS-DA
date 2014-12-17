@@ -5,18 +5,18 @@
 #include <algorithm>
 #include "Grafo.h"
 
-void sumar_ciclicamente (std::size_t& n) {
-	// gira la rueda a la izquierda
-	if (n == 9)
+void sumar_ciclicamente (std::size_t& n, std::size_t tam_rueda = 10) {
+	// gira la rueda a la izquierda. suponemos que empieza en 0
+	if (n == tam_rueda - 1)
 		n = 0;
 	else
 		++n;
 }
 
-void restar_ciclicamente (std::size_t& n) {
-	// gira la rueda a la derecha
+void restar_ciclicamente (std::size_t& n, std::size_t tam_rueda = 10) {
+	// gira la rueda a la derecha. suponemos que empieza en 0
 	if (n == 0)
-		n = 9;
+		n = tam_rueda - 1;
 	else
 		--n;
 }
@@ -113,11 +113,10 @@ int main () {
 
 		std::size_t num_confs_prohibidas;
 		/* como vamos a buscar combinaciones concretas, si el número de combinaciones prohibidas
-		 * fuera mayor de 10000 convendría usar un std::vector<bool> (el estándar ha especializado
+		 * fuera mayor de 10000 sería mejor usar un std::vector<bool> (el estándar ha especializado
 		 * este caso concreto como un bitset teniendo en mente este tipo de tareas), y si el número
 		 * de combinaciones fuera mayor de mil millones lo mejor sería usar un std::unordered_set
-		 * (que está implementado como un hash_set) o quizá un std::set.
-		 */
+		 * (que está implementado como un hash_set) o quizá un std::set. */
 		std::vector<std::size_t> confs_prohibidas;
 		fichero >> num_confs_prohibidas;
 		confs_prohibidas.reserve(num_confs_prohibidas); // optimización de memoria para problemas grandes
