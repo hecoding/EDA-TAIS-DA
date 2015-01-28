@@ -100,7 +100,7 @@ std::size_t leer_numero (std::ifstream& fichero, std::size_t num_ruedas) {
 	return num;
 }
 
-int main () {
+int main_prac2 () {
 	const std::size_t NUM_RUEDAS = 4;
 	std::ifstream fichero ("prac2/archivos/casos.txt");
 	std::size_t num_problemas;
