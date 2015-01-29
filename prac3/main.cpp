@@ -1,16 +1,15 @@
 #include <iostream>
-#include <string>
-#include <vector>
 #include <fstream>
+#include <vector>
 #include <limits>
 #include "Matriz.h"
 
 class problema {
 public:
-	std::size_t longitud;
-	std::vector<std::size_t> cortes;
+	int longitud;
+	std::vector<int> cortes;
 
-	problema (std::size_t longitud, std::size_t num_cortes) : longitud (longitud) {
+	problema (int longitud, int num_cortes) : longitud (longitud) {
 		cortes.reserve(num_cortes);
 	}
 };
@@ -18,7 +17,7 @@ public:
 std::vector<problema> lector (const std::string& ruta) {
 	std::ifstream fichero (ruta);
 	std::vector<problema> problemas;
-	std::size_t longitud, num_cortes, corte;
+	int longitud, num_cortes, corte;
 
 	fichero >> longitud;
 
@@ -26,11 +25,13 @@ std::vector<problema> lector (const std::string& ruta) {
 		fichero >> num_cortes;
 		problema temp (longitud, num_cortes);
 
+		temp.cortes.push_back(0); // para simplificar
 		while (num_cortes != 0) {
 			fichero >> corte;
 			temp.cortes.push_back(corte);
 			--num_cortes;
 		}
+		temp.cortes.push_back(longitud); // para simplificar
 
 		problemas.push_back(temp);
 
@@ -40,61 +41,66 @@ std::vector<problema> lector (const std::string& ruta) {
 	return problemas;
 }
 
-void imprimir_resultado (int i, int j, const std::vector<std::size_t>& cortes, const Matriz<std::size_t>& matriz) {
-	int corte = matriz[i][j];
-	if (corte != 0) {
-		std::cout << cortes[corte] << std::endl;
-		imprimir_resultado (i, corte, cortes, matriz);
-		imprimir_resultado (corte, j, cortes, matriz);
-	}
-}
-
-Matriz<std::size_t> ebanisto (const std::vector<std::size_t>& corte, std::size_t ja) { // ebanisto (i, j) i = cortes de 1 a i, j = longitud tronco
-	Matriz<std::size_t> ebanisto_matr(corte.size(),ja); // poner num cortes en ja
-	Matriz<std::size_t> solucion (corte.size(),ja); // poner num cortes en ja
-	std::size_t corte_actual, menor_corte;
+Matriz<int> ebanisto (const std::vector<int>& corte, const int num_cortes, int& coste_final) {
+	Matriz<int> ebanisto_matr (num_cortes + 2, num_cortes + 2); // + 2 por los cortes ficticios
+	Matriz<int> solucion (num_cortes + 2, num_cortes + 2); // 		que pusimos en el lector
+	int coste_actual, menor_coste;
 
 	// inicializar las matrices
-	for (std::size_t m = 0; m < corte.size(); ++m) {
-		for (std::size_t n = 0; n < ja; ++n) { // poner num cortes en ja
+	for (int m = 0; m <= num_cortes + 1; ++m) {
+		for (int n = 0; n <= num_cortes + 1; ++n) {
 			ebanisto_matr[m][n] = 0;
 			solucion[m][n] = 0;
 		}
 	}
 
-	// recorremos de arriba a abajo y de izquierda a derecha
-	for (int i = corte.size() - 1; i >= 0; --i) {
-		for (int j = i; j < corte.size(); ++j) {
-			menor_corte = std::numeric_limits<std::size_t>::max();
-
-			for (int k = i; k < j; ++k) {
-				corte_actual = ebanisto_matr[i][k] + ebanisto_matr[k][j] + 2 * (corte[j] - corte[i]);
-
-				if (corte_actual < menor_corte) {
-					ebanisto_matr[i][j] = menor_corte = corte_actual;
-					solucion [i][j] = k;
+	for (int i = num_cortes - 1; i >= 0; --i) {	// Recorrer en vertical (arriba a abajo)
+		for (int j = i + 2; j <= num_cortes + 1; ++j) { // Recorrer en horizontal (izquierda a derecha)
+			menor_coste = std::numeric_limits<int>::max();
+			for (int m = i + 1; m < j; ++m) {
+				coste_actual = ebanisto_matr[i][m] + ebanisto_matr[m][j] + (2 * (corte[j] - corte[i]));
+				if (coste_actual < menor_coste) {
+					menor_coste = coste_actual;
+					solucion[i][j] = m;
 				}
 			}
-
+			ebanisto_matr[i][j] = menor_coste;
 		}
 	}
+	coste_final = menor_coste;
 
 	return solucion;
 }
 
+void imprimir_resultado (int i, int j, const std::vector<int>& corte, const Matriz<int>& solucion) {
+	int cut = solucion[i][j];
+
+	if (cut != 0) {
+		std::cout << "  ";
+		std::cout << corte[cut] << std::endl;
+		std::cout << "  ";
+		imprimir_resultado (i, cut, corte, solucion); // recorrido en preorden. aunque la
+		imprimir_resultado (cut, j, corte, solucion); // tabulación no es correcta pero es lo de menos
+	}
+}
 
 int main () {
 	std::string ruta = "prac3/archivos/troncos.txt";
+	int coste;
 
-	std::vector<problema> problemas = lector(ruta);
+		std::vector<problema> problemas = lector(ruta);
 
-	for (std::size_t i = 1; i <= problemas.size(); ++i) {
-		problema actual = problemas[i - 1];
-		Matriz<std::size_t> solucion = ebanisto(actual.cortes, actual.longitud);
-		std::cout << "Caso " << i << ": El coste mínimo es de " << solucion[0][actual.longitud - 1] << "." << std::endl; // o poner size,size
-		std::cout << "Cortes: " << std::endl;
-		imprimir_resultado (0, problemas.size(), actual.cortes, solucion);
-	}
+		for (std::size_t i = 1; i <= problemas.size(); ++i) {
+			problema actual = problemas[i - 1];
+			std::cout << "Caso " << i << ": ";
+
+			Matriz<int> solucion = ebanisto(actual.cortes, actual.cortes.size() - 2, coste);
+
+			std::cout << "El coste minimo es de " << coste << "." << std::endl;
+			std::cout << "Cortes: " << std::endl;
+			imprimir_resultado (0, actual.cortes.size() - 1, actual.cortes, solucion);
+			std::cout << std::endl;
+		}
 
 	return 0;
 }
