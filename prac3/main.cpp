@@ -40,33 +40,42 @@ std::vector<problema> lector (const std::string& ruta) {
 	return problemas;
 }
 
-void imprimir_resultado (const Matriz<std::size_t>& matriz) {
-
+void imprimir_resultado (int i, int j, const std::vector<std::size_t>& cortes, const Matriz<std::size_t>& matriz) {
+	int corte = matriz[i][j];
+	if (corte != 0) {
+		std::cout << cortes[corte] << std::endl;
+		imprimir_resultado (i, corte, cortes, matriz);
+		imprimir_resultado (corte, j, cortes, matriz);
+	}
 }
 
 Matriz<std::size_t> ebanisto (const std::vector<std::size_t>& corte, std::size_t ja) { // ebanisto (i, j) i = cortes de 1 a i, j = longitud tronco
-	Matriz<std::size_t> ebanisto_matr(corte.size(),ja);
-	Matriz<std::size_t> solucion (corte.size(),ja);
+	Matriz<std::size_t> ebanisto_matr(corte.size(),ja); // poner num cortes en ja
+	Matriz<std::size_t> solucion (corte.size(),ja); // poner num cortes en ja
+	std::size_t temp, mejor_solucion;
 
-	for (std::size_t m = 0; m < ebanisto_matr.numfils(); ++m) {
-		for (std::size_t n = 0; n < ebanisto_matr.numcols(); ++n) {
-			if (n == m + 1) // caso base ebanisto (i, i+1) = 0
-				ebanisto_matr[m][n] = 0;
-			else
-				ebanisto_matr[m][n] = std::numeric_limits<std::size_t>::max();
+	// inicializar las matrices
+	for (std::size_t m = 0; m < corte.size(); ++m) {
+		for (std::size_t n = 0; n < ja; ++n) { // poner num cortes en ja
+			ebanisto_matr[m][n] = 0;
+			solucion[m][n] = 0;
 		}
 	}
 
-	for (std::size_t i = corte.size() - 1; i >= 0; --i) {
-		for (std::size_t j = i + 2; j <= corte.size() + 1; ++j) {
-			for (std::size_t k = i + 1; k < j; ++k) {
-				auto temp = ebanisto_matr[i][k] + ebanisto_matr[k][j] + 2 * (corte[j] - corte[i]);
+	// recorremos de arriba a abajo y de izquierda a derecha
+	for (int i = corte.size() - 1; i >= 0; --i) {
+		for (int j = i; j < corte.size(); ++j) {
+			mejor_solucion = std::numeric_limits<std::size_t>::max();
+
+			for (int k = i; k < j; ++k) {
+				temp = ebanisto_matr[i][k] + ebanisto_matr[k][j] + 2 * (corte[j] - corte[i]);
 
 				if (temp < ebanisto_matr[i][j]) {
-					ebanisto_matr[i][j] = temp;
+					ebanisto_matr[i][j] = mejor_solucion = temp;
 					solucion [i][j] = k;
 				}
 			}
+
 		}
 	}
 
@@ -79,8 +88,13 @@ int main () {
 
 	std::vector<problema> problemas = lector(ruta);
 
-	for (auto a : problemas)
-		imprimir_resultado (ebanisto(a.cortes, a.longitud));
+	for (std::size_t i = 1; i <= problemas.size(); ++i) {
+		problema actual = problemas[i - 1];
+		Matriz<std::size_t> solucion = ebanisto(actual.cortes, actual.longitud);
+		std::cout << "Caso " << i << ": El coste mínimo es de " << solucion[actual.cortes.size() - 1][actual.longitud - 1] << "." << std::endl; // o poner size,size
+		std::cout << "Cortes: " << std::endl;
+		imprimir_resultado (0, problemas.size(), actual.cortes, solucion);
+	}
 
 	return 0;
 }
