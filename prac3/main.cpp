@@ -52,7 +52,7 @@ void imprimir_resultado (int i, int j, const std::vector<std::size_t>& cortes, c
 Matriz<std::size_t> ebanisto (const std::vector<std::size_t>& corte, std::size_t ja) { // ebanisto (i, j) i = cortes de 1 a i, j = longitud tronco
 	Matriz<std::size_t> ebanisto_matr(corte.size(),ja); // poner num cortes en ja
 	Matriz<std::size_t> solucion (corte.size(),ja); // poner num cortes en ja
-	std::size_t temp, mejor_solucion;
+	std::size_t corte_actual, menor_corte;
 
 	// inicializar las matrices
 	for (std::size_t m = 0; m < corte.size(); ++m) {
@@ -65,13 +65,13 @@ Matriz<std::size_t> ebanisto (const std::vector<std::size_t>& corte, std::size_t
 	// recorremos de arriba a abajo y de izquierda a derecha
 	for (int i = corte.size() - 1; i >= 0; --i) {
 		for (int j = i; j < corte.size(); ++j) {
-			mejor_solucion = std::numeric_limits<std::size_t>::max();
+			menor_corte = std::numeric_limits<std::size_t>::max();
 
 			for (int k = i; k < j; ++k) {
-				temp = ebanisto_matr[i][k] + ebanisto_matr[k][j] + 2 * (corte[j] - corte[i]);
+				corte_actual = ebanisto_matr[i][k] + ebanisto_matr[k][j] + 2 * (corte[j] - corte[i]);
 
-				if (temp < ebanisto_matr[i][j]) {
-					ebanisto_matr[i][j] = mejor_solucion = temp;
+				if (corte_actual < menor_corte) {
+					ebanisto_matr[i][j] = menor_corte = corte_actual;
 					solucion [i][j] = k;
 				}
 			}
@@ -91,7 +91,7 @@ int main () {
 	for (std::size_t i = 1; i <= problemas.size(); ++i) {
 		problema actual = problemas[i - 1];
 		Matriz<std::size_t> solucion = ebanisto(actual.cortes, actual.longitud);
-		std::cout << "Caso " << i << ": El coste mínimo es de " << solucion[actual.cortes.size() - 1][actual.longitud - 1] << "." << std::endl; // o poner size,size
+		std::cout << "Caso " << i << ": El coste mínimo es de " << solucion[0][actual.longitud - 1] << "." << std::endl; // o poner size,size
 		std::cout << "Cortes: " << std::endl;
 		imprimir_resultado (0, problemas.size(), actual.cortes, solucion);
 	}
