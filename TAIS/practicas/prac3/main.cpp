@@ -2,28 +2,28 @@
 #include <fstream>
 #include <vector>
 #include <limits>
-#include "Matriz.h"
+#include "../tiposdelprofesor/Matriz.h"
 
 class problema {
 public:
 	int longitud;
 	std::vector<int> cortes;
 
-	problema (int longitud, int num_cortes) : longitud (longitud) {
+	problema(int longitud, int num_cortes) : longitud { longitud } {
 		cortes.reserve(num_cortes);
 	}
 };
 
 std::vector<problema> lector (const std::string& ruta) {
 	std::ifstream fichero (ruta);
-	std::vector<problema> problemas;
-	int longitud, num_cortes, corte;
+	std::vector<problema> problemas { };
+	int longitud { }, num_cortes { }, corte { };
 
 	fichero >> longitud;
 
 	while (longitud != 0) {
 		fichero >> num_cortes;
-		problema temp (longitud, num_cortes);
+		problema temp { longitud, num_cortes };
 
 		temp.cortes.push_back(0); // para simplificar
 		while (num_cortes != 0) {
@@ -44,7 +44,7 @@ std::vector<problema> lector (const std::string& ruta) {
 Matriz<int> ebanisto (const std::vector<int>& corte, const int num_cortes, int& coste_final) {
 	Matriz<int> ebanisto_matr (num_cortes + 2, num_cortes + 2); // + 2 por los cortes ficticios
 	Matriz<int> solucion (num_cortes + 2, num_cortes + 2); // 		que pusimos en el lector
-	int coste_actual, menor_coste;
+	int coste_actual { }, menor_coste { };
 
 	// inicializar las matrices
 	for (int m = 0; m <= num_cortes + 1; ++m) {
@@ -86,7 +86,7 @@ void imprimir_resultado (int i, int j, const std::vector<int>& corte, const Matr
 
 int main () {
 	std::string ruta = "prac3/archivos/troncos.txt";
-	int coste;
+	int coste { };
 
 		std::vector<problema> problemas = lector(ruta);
 

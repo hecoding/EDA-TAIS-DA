@@ -1,6 +1,6 @@
 #include <fstream>
 #include <limits>
-#include "ColaPrioPares.h"
+#include "../tiposdelprofesor/ColaPrioPares.h"
 
 using namespace std;
 
@@ -10,9 +10,9 @@ bool menor(const int& a, const int& b) {
 
 void mezcla_multiple(ifstream streams[], int N) { // ocupadas las posiciones [1..N]
 	// solo nos va a hacer falta un nodo por archivo
-	ColaPrioPares<int, menor> cola(N);
-	int elemento, archivoProcedente;
-	Par<int> parTemp;
+	ColaPrioPares<int, menor> cola { N };
+	int elemento { }, archivoProcedente { };
+	Par<int> parTemp { };
 
 	for (archivoProcedente = 1; archivoProcedente <= N; ++archivoProcedente) {
 		streams[archivoProcedente] >> elemento;
@@ -32,7 +32,7 @@ void mezcla_multiple(ifstream streams[], int N) { // ocupadas las posiciones [1.
 
 int mainMonticuloMediana (int argc, char* argv[]) {
 	if (argc > 1) {
-		ifstream *streams = new ifstream[argc];
+		ifstream streams[] = new ifstream[argc];
 		for (int i = 1; i < argc; i++)
 			streams[i].open(argv[i]);
 

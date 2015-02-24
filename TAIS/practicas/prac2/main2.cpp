@@ -3,7 +3,7 @@
 #include <cmath>
 #include <vector>
 #include <algorithm>
-#include "Grafo.h"
+#include "../tiposdelprofesor/Grafo.h"
 
 void sumar_ciclicamente (std::size_t& n, std::size_t tam_rueda = 10) {
 	// gira la rueda a la izquierda. suponemos que empieza en 0
@@ -22,7 +22,7 @@ void restar_ciclicamente (std::size_t& n, std::size_t tam_rueda = 10) {
 }
 
 std::vector<std::size_t> numero_a_ruedas (std::size_t numero, std::size_t num_ruedas) {
-	std::vector<std::size_t> ruedas;
+	std::vector<std::size_t> ruedas { };
 
 	// divide cada "rueda" de la combinación
 	for (std::size_t i = 0; i < num_ruedas; ++i) {
@@ -45,7 +45,7 @@ std::size_t ruedas_a_numero (std::vector<std::size_t> numeros, std::size_t num_r
 }
 
 std::vector<std::size_t> generar_combinaciones (std::size_t num, std::size_t num_ruedas) {
-	std::vector<std::size_t> combinaciones, temp;
+	std::vector<std::size_t> combinaciones { }, temp { };
 	temp = numero_a_ruedas(num, num_ruedas);
 
 		// genera las 2 * num_ruedas combinaciones posibles, dependiendo de la configuración de las ruedas
@@ -103,21 +103,23 @@ std::size_t leer_numero (std::ifstream& fichero, std::size_t num_ruedas) {
 int main_prac2 () {
 	const std::size_t NUM_RUEDAS = 4;
 	std::ifstream fichero ("prac2/archivos/casos.txt");
-	std::size_t num_problemas;
+	std::size_t num_problemas { };
 
 	fichero >> num_problemas;
 	for(std::size_t a = 0; a < num_problemas; ++a) {
-		std::size_t conf_inicial, conf_final;
+		std::size_t conf_inicial { }, conf_final { };
 		conf_inicial = leer_numero(fichero, NUM_RUEDAS);
 		conf_final = leer_numero(fichero, NUM_RUEDAS);
 
-		std::size_t num_confs_prohibidas;
+		std::size_t num_confs_prohibidas { };
 		/* como vamos a buscar combinaciones concretas, si el número de combinaciones prohibidas
 		 * fuera mayor de 10000 sería mejor usar un std::vector<bool> (el estándar ha especializado
 		 * este caso concreto como un bitset teniendo en mente este tipo de tareas), y si el número
 		 * de combinaciones fuera mayor de mil millones lo mejor sería usar un std::unordered_set
 		 * (que está implementado como un hash_set) o quizá un std::set. */
-		std::vector<std::size_t> confs_prohibidas;
+		// EDIT post-calificación: incluso después de este comentario puesto aposta, el profesor
+		// me ha bajado nota por usar una búsqueda lineal. Claro que sí.
+		std::vector<std::size_t> confs_prohibidas { };
 		fichero >> num_confs_prohibidas;
 		confs_prohibidas.reserve(num_confs_prohibidas); // optimización de memoria para problemas grandes
 

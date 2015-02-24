@@ -15,11 +15,11 @@ bool mayor(const int& a, const int& b) {
 
 int mainColaMedianas(int argc, char* argv[]) {
 
-	ColaMedianas<int, menore, mayor> cm;
+	ColaMedianas<int, menore, mayor> cm { };
 
-	ifstream fichero("prac1/archivos/input1.txt");
-	ofstream ficheroSal("prac1/archivos/output1.txt");
-	int v;
+	ifstream fichero ("prac1/archivos/input1.txt");
+	ofstream ficheroSal ("prac1/archivos/output1.txt");
+	int v { };
 
 	while(fichero >> v){
 		if (v >= 0) {

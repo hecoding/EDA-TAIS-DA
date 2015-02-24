@@ -2,9 +2,9 @@
 #define COLAMEDIANAS_H
 
 #include <iostream>
-#include "ColaPrio.h"
+#include "../tiposdelprofesor/ColaPrio.h"
 
-template <class T, bool(*antes)(const T &, const T &), bool(*despues)(const T &, const T &)>
+template <class T, bool(*antes)(const T &, const T &), bool(*despues)(const T &, const T &)> // pasar funciones como el profesor...
 class ColaMedianas {
 
 public:
@@ -64,7 +64,7 @@ private:
 
 	/** función que balancea los dos montículos */
 	void recolocar() {
-		int temp;
+		int temp { };
 
 		while (abs(_colamin.numElem() - _colamax.numElem()) > 1) {
 
