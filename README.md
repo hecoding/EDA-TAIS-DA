@@ -20,10 +20,10 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
   + Práctica
 
 #TODO
-meter enunciado de prácticas en cada práctica
-meter enunciados ejercicios en los ejercicios
-poner de donde se ha sacado el ejercicio y el número
+meter enunciado de prácticas en cada práctica   
+meter enunciados ejercicios en los ejercicios   
+poner de donde se ha sacado el ejercicio y el número   
 
-pasar a MarkDown todos los pdfs
-poner un readme guay y con un índice
-poner (sí, ya sé que las implementaciones y el estilo no es el mejor, pero solo se aceptan correcciones de código críticas)
+pasar a MarkDown todos los pdfs   
+poner un readme guay y con un índice   
+poner (sí, ya sé que las implementaciones y el estilo no es el mejor, pero solo se aceptan correcciones de código críticas)   
