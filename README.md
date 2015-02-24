@@ -14,10 +14,10 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
 
 + Tipos Abstractos de Datos
   + Implementación y uso de TADs
-  + Diseño e implementación de TADs lineales
-  + Diseño e implementación de TADs arborescentes
-  + Diseño e implementación de tablas asociativas
-  + Aplicaciones de tipos abstractos de datos
+  + Vectores, istas, colas, pilas
+  + Árboles
+  + Tablas Hash
+  + Aplicaciones de TADS
 
 - - -
 
