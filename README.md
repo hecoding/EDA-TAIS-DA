@@ -24,13 +24,17 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
 ## TAIS
 + Análisis amortizado
 + Montículos
-  + Práctica
+  + [Práctica][taisprac1]
 + Árboles
 + Grafos
-  + Práctica
+  + [Práctica][taisprac2]
 + Algoritmos voraces
 + Programación dinámica
-  + Práctica
+  + [Práctica][taisprac3]
+
+[taisprac1]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac1
+[taisprac2]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac2
+[taisprac3]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac3
 
 #TODO
 meter enunciado de prácticas en cada práctica   
