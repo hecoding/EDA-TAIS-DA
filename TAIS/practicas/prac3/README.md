@@ -1,4 +1,4 @@
-# Práctica 3
+# Práctica de programación dinámica
 Se valorará tanto la *corrección* como la *eficiencia* y la *simplicidad* de las soluciones propuestas.   
 
 El carpintero *Ebanisto* recibe el encargo de cortar un tronco en varios trozos que han sido previamente marcados sobre la madera. El esfuerzo de cortar un trozo de madera en dos es el doble de su longitud. *Ebanisto* se da cuenta de que el orden en el que realice los cortes en el tronco influye en el esfuerzo empleado. Por ejemplo, supongamos que un tronco de longitud 10 metros tiene que cortarse a 2, 4 y 7 metros de uno de los extremos. Una posibilidad sería cortar primero por la marca de los 2 metros, luego por la marca de los 4 metros y finalmente por la de 7 metros, lo que le costaría a *Ebanisto* un esfuerzo de *2 ∗ 10 + 2 ∗ 8 + 2 ∗ 6 = 48*. Sin embargo, si corta primero por la marca del 4, después por la del 2 y finalmente por la del 7, entonces le costaría un esfuerzo de *2∗10+2∗4+2∗6 = 40*. La práctica consiste en diseñar un algoritmo de programación dinámica que ayude a Ebanisto a decidir en qué orden cortar el tronco por las marcas para minimizar el esfuerzo realizado y programarlo.   
