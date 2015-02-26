@@ -37,10 +37,10 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
 [taisprac3]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac3
 
 #TODO
-meter enunciado de prácticas en cada práctica   
-meter enunciados ejercicios en los ejercicios   
+meter enunciado de prácticas en cada práctica (TAIS hecho)   
+meter enunciados ejercicios en los ejercicios (TAIS hecho)   
 poner de donde se ha sacado el ejercicio y el número   
 
-pasar a MarkDown todos los pdfs   
-poner un readme guay y con un índice   
+pasar a MarkDown todos los pdfs (TAIS hecho)   
+poner un readme guay y con un índice (TAIS hecho)   
 poner (sí, ya sé que las implementaciones y el estilo no es el mejor, pero solo se aceptan correcciones de código críticas)   
