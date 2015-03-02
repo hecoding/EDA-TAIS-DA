@@ -37,7 +37,7 @@ Algún código puede ser horrible pero es lo que hay, así es el código de los 
   + Tablas Hash
   + Aplicaciones de TADS
     + [Práctica][practicaTADS]
-  
+
   + Exámenes
     + [Parcial Junio 2012. Ejercicio 1][junio2012parcial1]
 
