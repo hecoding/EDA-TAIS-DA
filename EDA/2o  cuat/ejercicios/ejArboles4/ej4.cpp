@@ -6,8 +6,9 @@
  */
 
 #include <iostream>
-#include "Arbin.h"
-#include "Lista.h"
+
+#include "../ejArboles4/Arbin.h"
+#include "../ejArboles4/Lista.h"
 
 using namespace std;
 

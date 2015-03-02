@@ -6,7 +6,8 @@
 #include <string>
 #include <cassert>
 #include <cstddef>
-#include "Excepciones.h"
+
+#include "../ejArboles4/Excepciones.h"
 using namespace std;
 
 /** Excepción generada por algunos métodos. */

@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "Arbin.h"
+#include "../ejArboles4/Arbin.h"
 using namespace std;
 
 template <typename T>

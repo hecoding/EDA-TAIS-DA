@@ -5,9 +5,10 @@
 #include <string>
 #include <cassert>
 #include <cstddef>
-#include "Excepciones.h"
-#include "Lista.h"
-#include "Cola.h"
+
+#include "../ejArboles4/Cola.h"
+#include "../ejArboles4/Excepciones.h"
+#include "../ejArboles4/Lista.h"
 using namespace std;
 
 class EArbolVacio : public ExcepcionTAD {

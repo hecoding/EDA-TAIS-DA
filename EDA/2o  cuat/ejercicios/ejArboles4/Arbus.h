@@ -1,11 +1,9 @@
 #ifndef __ARBUS_H
 #define __ARBUS_H
 
-#include "Excepciones.h"
-
-#include "Lista.h" // Tipo devuelto por los recorridos
-
-#include "Pila.h" // Usado internamente por los iteradores
+#include "../ejArboles4/Excepciones.h"
+#include "../ejArboles4/Lista.h" // Tipo devuelto por los recorridos
+#include "../ejArboles4/Pila.h" // Usado internamente por los iteradores
 
 /**
  ImplementaciÛn din·mica del TAD Arbus utilizando

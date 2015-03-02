@@ -7,7 +7,7 @@
 #include <cassert>
 #include <cstddef>
 using namespace std;
-#include "Excepciones.h"
+#include "../ejArboles4/Excepciones.h"
 
 
 // Excepcion generada por algunos ḿetodos de Pila. ∗/
