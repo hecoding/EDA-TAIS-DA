@@ -11,7 +11,9 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
   + Diseño de algoritmos recursivos
   + Divide y vencerás
     + [El par más cercano][closestpair]
+    + [Ejercicio][transponer]
   + Vuelta Atrás
+    + [Ejercicio][vacasillas]
 
 + Tipos Abstractos de Datos
   + Implementación y uso de TADs
@@ -34,6 +36,8 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
   + [Práctica][taisprac3]
 
 [closestpair]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/puntosmascercanos
+[transponer]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/transponer
+[vacasillas]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/vueltaatrascasillas
 [taisprac1]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac1
 [taisprac2]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac2
 [taisprac3]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac3
