@@ -1,7 +1,12 @@
-Practices, exercises and snippets of Estructura de Datos y Algoritmos (Data Structures and Algorithms) and Técnicas Algorítmicas en Ingeniería del Software (Algorithmics Techniques in Software Engineering) or Diseño de Algoritmos (Algorithm Design) (last two have same content but different name depending on the grade)
+Practices, exercises and snippets of Estructura de Datos y Algoritmos (Data Structures and Algorithms, 2nd course) and Técnicas Algorítmicas en Ingeniería del Software (Algorithmic Techniques in Software Engineering, 3rd course) or Diseño de Algoritmos (Algorithm Design) (last two have same content but different name depending on the grade).   
+This repo is a backup of my work. The reason to upload it here is to make it accessible to someone who's on this subjects and would find it useful to take a look (not sure about).   
+The rest of the document, statements and code are in spanish as it was the language in which was taught.
 - - -
-En este repo voy a subir todos los ejercicios, prácticas y exámenes resueltos que tengo de EDA y de TAIS o DA (mismo contenido, diferente nombre, dependiendo del grado).
-El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabla. eda 2º curso tais 3º.
+Este repo está hecho para guardar los ejercicios, prácticas y exámenes resueltos que tengo de EDA (2º curso), y que quien quiera pueda verlos si le ayudan de algo. La mayor parte están comentados o el código es autoexplicativo. También tengo alguna [explicación mía][myclosestpair] hecha para entender mejor el problema.
+
+Es menos, pero también está lo que tengo de TAIS o DA (3º curso) (mismo contenido, diferente nombre, dependiendo del grado).
+
+Algún código puede ser horrible pero es lo que hay, así es el código de los profesores. Salvo cambios de estilo irrelevantes, se aceptan correcciones, ejercicios faltantes, tu versión de una práctica, etc!
 
 ## EDA
 + Algoritmos
@@ -70,8 +75,7 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
 [taisprac2]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac2
 [taisprac3]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac3
 
-#TODO
-PONER EL README BIEN DE AQUÍ Y LIBERAR (poner (sí, ya sé que las implementaciones y el estilo no es el mejor, pero solo se aceptan correcciones de código críticas))   
+###### TO DO
 cambiar en TAIS tipos_profesor a implementaciones   
 Encontrar enunciado práctica pila   
 Encontrar enunciado práctica TAD
