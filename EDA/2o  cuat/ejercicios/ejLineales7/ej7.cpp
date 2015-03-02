@@ -1,6 +1,7 @@
 #include <iostream>
-#include "Pila.h"
-#include "Lista.h"
+
+#include "../ejLineales2/Lista.h"
+#include "../ejLineales2/Pila.h"
 using namespace std;
 
 template <class T>

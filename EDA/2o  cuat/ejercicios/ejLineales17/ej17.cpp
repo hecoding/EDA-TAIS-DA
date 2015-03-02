@@ -1,5 +1,6 @@
 #include <iostream>
-#include "Lista.h"
+
+#include "../ejLineales2/Lista.h"
 using namespace std;
 
 template <class T>

@@ -6,7 +6,7 @@
 #include <cassert>
 #include <cstddef>
 using namespace std;
-#include "Excepciones.h"
+#include "../ejLineales2/Excepciones.h"
 
 
 

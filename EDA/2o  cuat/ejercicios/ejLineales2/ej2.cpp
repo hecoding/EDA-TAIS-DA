@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "Pila.h"
+#include "../ejLineales2/Pila.h"
 using namespace std;
 
 template <class T>

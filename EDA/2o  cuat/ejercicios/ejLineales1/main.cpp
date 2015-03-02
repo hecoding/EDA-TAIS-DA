@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "Pila.h"
+#include "../ejLineales2/Pila.h"
 
 using namespace std;
 
@@ -18,7 +18,7 @@ int main1() {
         suma += pila.cima();
         cout << pila.cima();
         pila.desapila();
-        if (!pila.esVacia()) // unefficient shit
+        if (!pila.esVacia()) // inefficient shit
             cout << " + ";
     }
     cout << " = " << suma;
