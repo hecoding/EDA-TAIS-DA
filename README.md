@@ -1,4 +1,4 @@
-Practices, exercises and snippets of Estructura de Datos y Algoritmos (Data Structures and Algorithms) and Técnicas Algorítmicas en Ingeniería del Software (Algorithmics Techniques in Software Engineering) or Diseño de Algoritmos (Algorithms Design) (last two have same content but different name depending on the grade)
+Practices, exercises and snippets of Estructura de Datos y Algoritmos (Data Structures and Algorithms) and Técnicas Algorítmicas en Ingeniería del Software (Algorithmics Techniques in Software Engineering) or Diseño de Algoritmos (Algorithm Design) (last two have same content but different name depending on the grade)
 - - -
 En este repo voy a subir todos los ejercicios, prácticas y exámenes resueltos que tengo de EDA y de TAIS o DA (mismo contenido, diferente nombre, dependiendo del grado).
 El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabla. eda 2º curso tais 3º.
