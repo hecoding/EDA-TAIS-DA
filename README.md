@@ -10,7 +10,7 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
   + Diseño de algoritmos iterativos
   + Diseño de algoritmos recursivos
   + Divide y vencerás
-    + [El par más cercano][closestpair]
+    + [El par más cercano][closestpair] [explicación propia][myclosestpair]
     + [Ejercicio][transponer]
   + Vuelta Atrás
     + [Ejercicio][vacasillas]
@@ -50,6 +50,7 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
   + [Práctica][taisprac3]
 
 [closestpair]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/puntosmascercanos
+[myclosestpair]: https://github.com/hecoding/EDA-TAIS/blob/master/EDA/1er%20cuat/puntosmascercanos/mispuntos/main.cpp
 [transponer]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/transponer
 [vacasillas]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/vueltaatrascasillas
 [uso4y10]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/implementaciontadsencillopraccomplejos
