@@ -17,7 +17,11 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
 
 + Tipos Abstractos de Datos
   + Implementación y uso de TADs
-  + Vectores, istas, colas, pilas
+  + Vectores, listas, colas, pilas
+    + [Ejercicio 1][lineales1]
+    + [Ejercicio 2][lineales2]
+    + [Ejercicio 7][lineales7]
+    + [Ejercicio 17][lineales17]
   + Árboles
     + [Ejercicio 4][arboles4]
     + [Ejercicio 7][arboles7]
@@ -42,6 +46,10 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
 [closestpair]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/puntosmascercanos
 [transponer]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/transponer
 [vacasillas]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/vueltaatrascasillas
+[lineales1]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejLineales1
+[lineales2]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejLineales2
+[lineales7]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejLineales7
+[lineales17]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejLineales17
 [arboles4]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejArboles4
 [arboles7]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejArboles7
 [arboles9]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejArboles9
