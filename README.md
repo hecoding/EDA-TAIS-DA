@@ -23,6 +23,7 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
     + [Ejercicio 2][lineales2]
     + [Ejercicio 7][lineales7]
     + [Ejercicio 17][lineales17]
+    + [Práctica pila][practicapila]
   + Árboles
     + [Ejercicio 4][arboles4]
     + [Ejercicio 7][arboles7]
@@ -30,6 +31,10 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
     + [Ejercicio 13][arboles13]
   + Tablas Hash
   + Aplicaciones de TADS
+    + [Práctica][practicaTADS]
+  
+  + Exámenes
+    + [Parcial Junio 2012. Ejercicio 1][junio2012parcial1]
 
 - - -
 
@@ -52,20 +57,23 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
 [lineales2]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejLineales2
 [lineales7]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejLineales7
 [lineales17]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejLineales17
+[practicapila]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/pila
 [arboles4]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejArboles4
 [arboles7]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejArboles7
 [arboles9]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejArboles9
 [arboles13]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/arboles13EDA
+[practicaTADS]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/practicaTADS
+[junio2012parcial1]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/parcialJunio2012ej1
+
 [taisprac1]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac1
 [taisprac2]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac2
 [taisprac3]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac3
 
 #TODO
-meter enunciado de prácticas en cada práctica (TAIS hecho)   
-meter enunciados ejercicios en los ejercicios (TAIS hecho)   
 cambiar en TAIS tipos_profesor a implementaciones   
-poner de donde se ha sacado el ejercicio y el número   
+Encontrar enunciado práctica pila   
+Encontrar enunciado práctica TAD
 
-pasar a MarkDown todos los pdfs (TAIS hecho)   
+pasar MarkDown a pdf de los readme   
 poner un readme guay y con un índice (TAIS hecho)   
 poner (sí, ya sé que las implementaciones y el estilo no es el mejor, pero solo se aceptan correcciones de código críticas)   
