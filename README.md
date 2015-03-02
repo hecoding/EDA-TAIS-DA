@@ -10,6 +10,7 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
   + Diseño de algoritmos iterativos
   + Diseño de algoritmos recursivos
   + Divide y vencerás
+    + [El par más cercano][closestpair]
   + Vuelta Atrás
 
 + Tipos Abstractos de Datos
@@ -32,6 +33,7 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
 + Programación dinámica
   + [Práctica][taisprac3]
 
+[closestpair]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/puntosmascercanos
 [taisprac1]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac1
 [taisprac2]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac2
 [taisprac3]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac3
