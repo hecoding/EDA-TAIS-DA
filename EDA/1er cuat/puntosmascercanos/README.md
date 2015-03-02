@@ -1,5 +1,4 @@
-closest pair
-# El problema del par más cercano
+# El problema del par más cercano (closest pair)
 + Dada una nube de n puntos en el plano, *n ≥ 2*, se trata de encontrar el par de puntos cuya distancia euclídea es menor (si hubiera más de un par con esa distancia mínima, basta con devolver uno de ellos). El problema tiene interés práctico. Por ejemplo, en un sistema de control del tráfico aéreo, el par más cercano nos informa del mayor riesgo de colisión entre dos aviones.
 
 + Dados p dos puntos, *p1 = (x1, y1 )* y *p2 = (x2, y2)*, su distancia euclídea viene dada por *d = sqrt( (x1 − x2)^2 + (y1 − y2)^2 )* . El algoritmo de “fuerza bruta” calcularía la distancia entre todo posible par de puntos, y devolvería el mínimo de todas ellas. Como hay *1/2 * n(n − 1)* pares posibles, el coste resultante sería **cuadrático**.
