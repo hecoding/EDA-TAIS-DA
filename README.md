@@ -19,6 +19,10 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
   + Implementación y uso de TADs
   + Vectores, istas, colas, pilas
   + Árboles
+    + [Ejercicio 4][arboles4]
+    + [Ejercicio 7][arboles7]
+    + [Ejercicio 9][arboles9]
+    + [Ejercicio 13][arboles13]
   + Tablas Hash
   + Aplicaciones de TADS
 
@@ -38,6 +42,10 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
 [closestpair]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/puntosmascercanos
 [transponer]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/transponer
 [vacasillas]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/vueltaatrascasillas
+[arboles4]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejArboles4
+[arboles7]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejArboles7
+[arboles9]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejArboles9
+[arboles13]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/arboles13EDA
 [taisprac1]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac1
 [taisprac2]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac2
 [taisprac3]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac3
