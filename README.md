@@ -17,6 +17,7 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
 
 + Tipos Abstractos de Datos
   + Implementación y uso de TADs
+    + [Ejercicio][uso4y10]
   + Vectores, listas, colas, pilas
     + [Ejercicio 1][lineales1]
     + [Ejercicio 2][lineales2]
@@ -46,6 +47,7 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
 [closestpair]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/puntosmascercanos
 [transponer]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/transponer
 [vacasillas]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/1er%20cuat/vueltaatrascasillas
+[uso4y10]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/implementaciontadsencillopraccomplejos
 [lineales1]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejLineales1
 [lineales2]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejLineales2
 [lineales7]: https://github.com/hecoding/EDA-TAIS/tree/master/EDA/2o%20%20cuat/ejercicios/ejLineales7
