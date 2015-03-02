@@ -70,10 +70,10 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
 [taisprac3]: https://github.com/hecoding/EDA-TAIS/tree/master/TAIS/practicas/prac3
 
 #TODO
+PONER EL README BIEN DE AQUÍ Y LIBERAR (poner (sí, ya sé que las implementaciones y el estilo no es el mejor, pero solo se aceptan correcciones de código críticas))   
 cambiar en TAIS tipos_profesor a implementaciones   
 Encontrar enunciado práctica pila   
 Encontrar enunciado práctica TAD
 
+limpiar carpetas y quitar carpetas de apuntes (o no?)   
 pasar MarkDown a pdf de los readme   
-poner un readme guay y con un índice (TAIS hecho)   
-poner (sí, ya sé que las implementaciones y el estilo no es el mejor, pero solo se aceptan correcciones de código críticas)   
