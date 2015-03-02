@@ -39,6 +39,7 @@ El código puede ser feo blabla pero no se aceptan correciones de ese tipo blabl
 #TODO
 meter enunciado de prácticas en cada práctica (TAIS hecho)   
 meter enunciados ejercicios en los ejercicios (TAIS hecho)   
+cambiar en TAIS tipos_profesor a implementaciones   
 poner de donde se ha sacado el ejercicio y el número   
 
 pasar a MarkDown todos los pdfs (TAIS hecho)   
