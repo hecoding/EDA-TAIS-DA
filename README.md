@@ -1,6 +1,6 @@
-Practices, exercises and snippets of Estructura de Datos y Algoritmos (Data Structures and Algorithms, 2nd course) and Técnicas Algorítmicas en Ingeniería del Software (Algorithmic Techniques in Software Engineering, 3rd course) or Diseño de Algoritmos (Algorithm Design) (last two have same content but different name depending on the grade).   
-This repo is a backup of my work. The reason to upload it here is to make it accessible to someone who's on this subjects and would find it useful to take a look (not sure about).   
-The rest of the document, statements and code are in spanish as it was the language in which was taught.
+Practices, exercises and snippets of Estructura de Datos y Algoritmos (Data Structures and Algorithms, 2nd course) and Técnicas Algorítmicas en Ingeniería del Software (Algorithmic Techniques in Software Engineering, 3rd course) or Diseño de Algoritmos (Algorithm Design) (last two have same content but different name depending on the degree).   
+This repo is a backup of my work. The reason to upload it here is to make it accessible to someone who's on this subjects and would find it useful to take a look (not sure about that).   
+The rest of the document, statements and code are wrote in spanish as it was the language in which the subjects were taught.
 - - -
 Este repo está hecho para guardar los ejercicios, prácticas y exámenes resueltos que tengo de EDA (2º curso), y que quien quiera pueda verlos si le ayudan de algo. La mayor parte están comentados o el código es autoexplicativo. También tengo alguna [explicación mía][myclosestpair] hecha para entender mejor el problema.
 
